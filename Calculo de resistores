@@ -1,0 +1,98 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+
+int main()
+{
+	
+float R = 0.;
+float r = 0.;
+int menu;
+
+//--------------------------------------------------
+voltar:
+	
+setlocale(LC_ALL,"Portuguese");
+system("COLOR 1F");
+	printf("\t\t Programa para calculo de circuito em Série ou Paralelo\n\n\n");
+	printf("Escolha entre as opções:\n\n \t1 - Calculo circuito série\n\t2 - Calculo circuito paralelo\n\n");
+scanf("%d",&menu);
+switch (menu){
+//----------------------------
+//Série
+case 1:{
+	system("cls");
+	system("COLOR 0e");
+	printf("\t\tDigite os valores dos resistores em Série\n\n\n \t\t(Digite 0 para receber o resultado):\n\n\n");
+
+do {
+	
+    scanf("%f", &r);
+
+    if (r != 0.) {
+        R += (r);
+    }
+}
+while(r != 0.);
+
+if (R != 0.) {
+    R = R;
+}
+
+printf("\n\t\t Soma dos resistores: %.3f Ohms \n\n\n\n", R);
+printf("\n\n\n\n Para fazer outro calculo ");
+	system("pause");
+	system("cls");
+	goto voltar;
+	
+	break;
+	
+
+}
+
+
+//--------------------------------------------------
+//Paralelo
+case 2:{
+
+	system("cls");
+	system("COLOR 0a");
+	printf("\t\tDigite os valores dos resistores em Paralelo\n\n\n \t\t(Digite 0 para receber o resultado):\n\n\n");
+
+do {
+    scanf("%f", &r);
+
+    if (r != 0.) {
+        R += (1/r);
+    }
+}
+while(r != 0.);
+
+if (R != 0.) {
+    R = 1/R;
+}
+
+printf("\n\t\t Soma dos resistores: %.3f Ohms \n\n\n\n", R);
+
+printf("\n\n\n\n Para fazer outro calculo ");
+	system("pause");
+	system("cls");
+	goto voltar;
+	
+	break;
+}
+//----------------------------------
+           default:{ 
+        	system ("cls");
+        	system("COLOR 4F");
+            printf(" Escolha incorreta no menu! \n\n\n");
+            system ("pause");
+            system ("cls");
+            goto voltar;
+            
+            break;
+                }
+}
+
+}
